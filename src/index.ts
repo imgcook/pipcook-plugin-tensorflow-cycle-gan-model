@@ -58,10 +58,10 @@ let opt = {
 };
 
 const cycleGanModelDefine: ModelDefineType = async (data: ImageDataset, args: ModelDefineArgsType): Promise<UniModel> => {
-  opt = dict({
+  opt = dict(boa.kwargs({
     ...opt,
     ...args
-  });
+  }));
   const model = new CycleGAN(opt);
   const pipcookModel: UniModel = {
     model,
